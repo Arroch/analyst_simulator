@@ -15,7 +15,7 @@ from airflow.decorators import dag, task
 
 # Алгоритм поиска аномалий на основе межквартильного размаха
 def check_anomaly(df, metric, a=4, sample_size=6):
-    # Расчет 25 и 75 процентиля,межквартильного размаха, верхней и нижней границ доверительного интервала
+    # Расчет 25 и 75 процентиля, межквартильного размаха, верхней и нижней границ доверительного интервала
     df['q25'] = df[metric].shift(1).rolling(sample_size).quantile(0.25)
     df['q75'] = df[metric].shift(1).rolling(sample_size).quantile(0.75)
     df['iqr'] = df['q75'] - df['q25']

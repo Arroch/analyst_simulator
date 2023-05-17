@@ -98,7 +98,7 @@ def report_dag():
 
     @task()
     def load(df):
-        print('extr ok')
+        print('extract OK')
         report_telegram(df, chat_id=143274204)
 
     df = extract()
